@@ -14,8 +14,6 @@ export default async function gen(options: IGen) {
 
   const files = readdirSync(`${process.cwd()}/input`);
 
-  console.log(files);
-
   for (const file of files) {
     const data = readFileSync(`${process.cwd()}/input/${file}`)
       .toString()
