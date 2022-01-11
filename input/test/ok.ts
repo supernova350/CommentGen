@@ -6,3 +6,4 @@
  - Description: A fully functional Metaverse clone
 ****************************************/
 
+console.log('ok');
