@@ -1,17 +1,23 @@
 {
-  "name": "commentgen",
-  "version": "1.0.0",
-  "description": "",
-  "main": "dist/index.js",
-  "type": "module",
-  "scripts": {
-    "run": "tsc && node --es-module-specifier-resolution=node ."
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "@types/node": "^17.0.8",
-    "typescript": "^4.5.4"
-  }
+	"name": "commentgen",
+	"version": "1.0.0",
+	"description": "",
+	"main": "dist/index.js",
+	"type": "module",
+	"scripts": {
+		"compile": "tsc",
+		"run": "tsc && node --es-module-specifier-resolution=node ."
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"devDependencies": {
+		"@types/node": "^17.0.8",
+		"typescript": "^4.5.4"
+	},
+	"dependencies": {
+		"readdirp": "^3.6.0",
+		"tslib": "^2.3.1",
+		"yargs-parser": "^21.0.0"
+	}
 }
