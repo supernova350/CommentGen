@@ -1,9 +1,7 @@
 import config from './config.json';
 const { fileExts, name, section, assignment, date, desc, overwrite } = config;
 import gen, { type IGen } from './gen';
-
-// TODO: config validation
-// TODO: CLI
+import yargs from 'yargs';
 
 const genOptions: IGen = {
 	fileExts,
