@@ -1,9 +1,9 @@
 /****************************************
- - Name: Test Student
- - Section: AP Computer Science X
- - Assignment: Metaverse Clone
- - Date: 1/10/2022
- - Description: A fully functional Metaverse clone
+ - Name: Nam
+ - Section: Sec
+ - Assignment: Assign
+ - Date: 1/14/2022
+ - Description: Desc
 ****************************************/
 
 console.log('test');

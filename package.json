@@ -6,7 +6,7 @@
 	"type": "module",
 	"scripts": {
 		"compile": "tsc",
-		"run": "tsc && node --es-module-specifier-resolution=node ."
+		"run": "tsc && node --es-module-specifier-resolution=node . --fileExts=\".ts|.js\" --name=Nam  --section=Sec --assignment=Assign --date=today --desc=Desc --overwrite=true"
 	},
 	"keywords": [],
 	"author": "",

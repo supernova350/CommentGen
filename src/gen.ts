@@ -2,7 +2,7 @@ import { readFileSync, writeFileSync } from 'fs';
 import { join } from 'path';
 import readdirp from 'readdirp';
 
-export interface IGen {
+export interface IGenOptions {
 	fileExts: string[];
 	name: string;
 	section: string;
@@ -12,15 +12,17 @@ export interface IGen {
 	overwrite: boolean;
 }
 
-export default async function gen(options: IGen) {
+export default async function genComments(options: IGenOptions) {
 	const { fileExts, name, section, assignment, date, desc, overwrite } = options;
 
 	const files = readdirp(join(process.cwd(), 'input'), {
-		fileFilter: fileExts,
+		fileFilter: fileExts.map((v) => '*.' + v),
 	});
 
 	for await (const entry of files) {
 		const { fullPath } = entry;
+
+		console.log(fullPath);
 
 		const data = readFileSync(fullPath).toString().split('\n');
 
