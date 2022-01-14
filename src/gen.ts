@@ -12,8 +12,9 @@ export interface IGenOptions {
 	overwrite: boolean;
 }
 
-export default async function genComments(options: IGenOptions) {
-	const { fileExts, name, section, assignment, date, desc, overwrite } = options;
+export default async function genComments({ fileExts, name, section, assignment, date, desc, overwrite }: IGenOptions) {
+	const getCommentText = () =>
+		`/****************************************\n - Name: ${name}\n - Section: ${section}\n - Assignment: ${assignment}\n - Date: ${date.toLocaleDateString()}\n - Description: ${desc}\n****************************************/\n`;
 
 	const files = readdirp(join(process.cwd(), 'input'), {
 		fileFilter: fileExts.map((v) => '*.' + v),
@@ -35,14 +36,14 @@ export default async function genComments(options: IGenOptions) {
 
 			data.splice(
 				0, // beginning of file
-				8, // delete 8 lines
-				`/****************************************\n - Name: ${name}\n - Section: ${section}\n - Assignment: ${assignment}\n - Date: ${date.toLocaleDateString()}\n - Description: ${desc}\n****************************************/\n`,
+				getCommentText().split('\n').length, // delete existing comment
+				getCommentText(),
 			);
 		} else {
 			data.splice(
 				0, // beginning of file
 				0, // don't delete anything
-				`/****************************************\n - Name: ${name}\n - Section: ${section}\n - Assignment: ${assignment}\n - Date: ${date.toLocaleDateString()}\n - Description: ${desc}\n****************************************/\n`,
+				getCommentText(),
 			);
 		}
 

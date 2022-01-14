@@ -4,8 +4,8 @@ import yargs from 'yargs';
 const args = yargs(process.argv.slice(2))
 	.option('fileExts', {
 		alias: ['exts'],
-		describe: 'File extensions to write comments on (format: .js|.ts)',
-		default: '.js|.ts',
+		describe: 'File extensions to write comments on (format: js|ts)',
+		default: 'js|js',
 		type: 'string',
 		demandOption: true,
 	})
@@ -57,6 +57,8 @@ const options: IGenOptions = {
 	desc,
 	overwrite,
 };
+
+console.log(options);
 
 try {
 	await genComments(options as IGenOptions);
