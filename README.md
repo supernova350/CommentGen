@@ -3,12 +3,11 @@ Automatic comment generator
 
 ## Usage
 `npm i && npm run compile`
-
 `node . <flags>`
 
 ### Example
 
-`node . <flags>`
+`node . --fileExts ts --name Name --section "AP Computer Science X" --assignment "Metaverse Clone" --date today --desc "Fully functional Metaverse Clone" --overwrite true`
 ## Flags
 | Flag           | Description                   | Usage                          | Example                  |
 | -------------  | ----------------------------- | -----------------------------  | ------------------------ | 
