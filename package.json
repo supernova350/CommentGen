@@ -6,7 +6,7 @@
 	"type": "module",
 	"scripts": {
 		"compile": "tsc",
-		"run": "tsc && node --es-module-specifier-resolution=node .
+		"run": "tsc && node --es-module-specifier-resolution=node ."
 	},
 	"keywords": [],
 	"author": "",
