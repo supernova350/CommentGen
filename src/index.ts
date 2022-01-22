@@ -1,7 +1,13 @@
-import genComments, { type IGenOptions } from './gen';
+#!/usr/bin/env node
+
+console.log('hi');
+
 import yargs from 'yargs';
 
-const args = yargs(process.argv.slice(2))
+import IGenOptions from './interfaces/IGenOptions';
+import genComments from './gen';
+
+const { fileExts, name, section, assignment, date, desc, overwrite } = yargs(process.argv.slice(2))
 	.option('fileExts', {
 		alias: ['exts'],
 		describe: 'File extensions to write comments on (format: js|ts)',
@@ -46,8 +52,6 @@ const args = yargs(process.argv.slice(2))
 	})
 	.parseSync();
 
-const { fileExts, name, section, assignment, date, desc, overwrite } = args;
-
 const options: IGenOptions = {
 	fileExts: fileExts.split('|'),
 	name,
@@ -58,12 +62,12 @@ const options: IGenOptions = {
 	overwrite,
 };
 
-console.log(options);
-
-try {
-	await genComments(options as IGenOptions);
-	console.info('[+] finished writing comments');
-} catch (e) {
-	const error = e as Error;
-	console.error(error);
-}
+(async () => {
+	try {
+		await genComments(options as IGenOptions);
+		console.info('[+] finished writing comments');
+	} catch (e) {
+		const error = e as Error;
+		console.error(error);
+	}
+})();
