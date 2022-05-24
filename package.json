@@ -32,7 +32,7 @@
 	"devDependencies": {
 		"@types/node": "17.0.23",
 		"@types/yargs": "17.0.10",
-		"typescript": "4.6.4"
+		"typescript": "4.7.2"
 	},
 	"dependencies": {
 		"readdirp": "^3.6.0",
